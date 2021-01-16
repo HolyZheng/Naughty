@@ -1,0 +1,24 @@
+{
+  "name": "naughty",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./src/node/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HolyZheng/Naughty.git"
+  },
+  "author": "holyzhengs",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HolyZheng/Naughty/issues"
+  },
+  "homepage": "https://github.com/HolyZheng/Naughty#readme",
+  "devDependencies": {
+    "chokidar": "^3.5.1",
+    "koa": "^2.13.1"
+  }
+}
