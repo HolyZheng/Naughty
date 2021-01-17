@@ -3,6 +3,7 @@ const reactPlugin = ({ app }) => {
         if (!ctx.path.endsWith('.jsx')) {
             return next()
         }
+        return next()
     })
 }
 export default reactPlugin;

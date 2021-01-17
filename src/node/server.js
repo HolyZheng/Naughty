@@ -11,22 +11,22 @@ app.use(async (ctx, next) => {
 });
 
 // 监听文件变化
-const watcher = chokidar.watch(root, {
+const watcher = chokidar.watch(process.cwd(), {
     ignored: [/node_modules/, /\.git/],
     awaitWriteFinish: {
       stabilityThreshold: 100,
       pollInterval: 10
     }
-}),
+});
 const context = {
-    root = process.cwd(),
+    root: process.cwd(),
     app,
     watcher,
-    port: config.port || 3000
+    port: 3000
 }
 
 // 对各种类型的请求进行处理，比如react的转译
-(plugins || []).forEach(plugin => plugin(context));
+plugins.forEach(plugin => plugin && plugin(context));
 
 
 // response
