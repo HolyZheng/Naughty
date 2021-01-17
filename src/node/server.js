@@ -1,4 +1,6 @@
 import Koa from 'koa';
+import KoaStatic from 'koa-static';
+import path from 'path';
 import chokidar from 'chokidar';
 import plugins from './plugin/index.js';
 
@@ -28,10 +30,9 @@ const context = {
 // 对各种类型的请求进行处理，比如react的转译
 plugins.forEach(plugin => plugin && plugin(context));
 
-
-// response
-app.use(async ctx => {
-  ctx.body = 'Hello World';
-});
+// static
+app.use(KoaStatic(
+    path.join(process.cwd(), './src/project')
+))
 
 app.listen(3000);
